@@ -48,9 +48,10 @@ const html = require('pa11y-reporter-html');
 const pa11y = require('pa11y');
 
 pa11y('http://example.com').then(results => {
-    // Returns a string with the results formatted as HTML
-    const htmlResults = html.results(results);
-    console.log(htmlResults);
+    // Returns a promise with the with the results formatted as HTML
+    const htmlResults = html.results(results).then((html) {
+      console.log(htmlResults);
+    });
 });
 ```
 
