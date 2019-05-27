@@ -1,112 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
-	<meta charset="utf-8"/>
-	<title>Accessibility Report For "{{pageUrl}}" ({{date}})</title>
+	<head>
 
-	<style>
+		<meta charset="utf-8" />
+		<title>Accessibility Report For "{{pageUrl}}" ({{date}})</title>
 
-		html, body {
-			margin: 0;
-			padding: 0;
-			background-color: #fff;
-			font-family: Arial, Helvetica, sans-serif;
-			font-size: 16px;
-			line-height: 22px;
-			color: #333;
-		}
-		li {
-			margin-bottom: 15px;
-		}
-		h1, h2, p, pre, ul {
-			margin-top: 0;
-			margin-bottom: 0;
-		}
-		h1 {
-			margin-bottom: 10px;
-			font-size: 24px;
-			line-height: 24px;
-		}
-		h2 {
-			font-size: 16px;
-		}
-		pre {
-			white-space: pre-wrap;
-			overflow: auto;
-		}
+		<style>
+			@media (prefers-color-scheme: light),
+			(prefers-color-scheme: no-preference) {
+				:root {
+					--color--background: hsl(0, 0%, 100%);
+					--color--border: hsl(0, 0%, 93%);
+					--color--error-background: hsl(0, 100%, 93%);
+					--color--error-border: hsl(0, 100%, 79%);
+					--color--error-text: hsl(0, 0%, 20%);
+					--color--notice-background: hsl(217, 100%, 97%);
+					--color--notice-border: hsl(219, 97%, 86%);
+					--color--notice-text: hsl(0, 0%, 20%);
+					--color--text: hsl(0, 0%, 20%);
+					--color--warning-background: hsl(60, 100%, 93%);
+					--color--warning-border: hsl(48, 80%, 54%);
+					--color--warning-text: hsl(0, 0%, 20%);
+				}
+			}
 
-		.page {
-			max-width: 800px;
-			margin: 0 auto;
-			padding: 25px;
-		}
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--color--background: hsl(0, 0%, 13%);
+					--color--border: hsl(0, 0%, 60%);
+					--color--error-background: hsl(0, 100%, 80%);
+					--color--error-border: hsl(0, 100%, 60%);
+					--color--error-text: hsl(0, 0%, 7%);
+					--color--notice-background: hsl(240, 100%, 80%);
+					--color--notice-border: hsl(240, 100%, 60%);
+					--color--notice-text: hsl(0, 0%, 0%);
+					--color--text: hsl(54, 100%, 92%);
+					--color--warning-background: hsl(48, 100%, 80%);
+					--color--warning-border: hsl(48, 100%, 60%);
+					--color--warning-text: hsl(0, 0%, 7%);
+				}
+			}
 
-		.counts {
-			margin-top: 30px;
-			font-size: 20px;
-		}
-		.count {
-			display: inline-block;
-			padding: 5px;
-			border-radius: 5px;
-			border: 1px solid #eee;
-		}
+			html,
+			body {
+				background-color: var(--color--background);
+				color: var(--color--text);
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 16px;
+				line-height: 22px;
+				margin: 0;
+				padding: 0;
+			}
 
-		.clean-list {
-			margin-left: 0;
-			padding-left: 0;
-			list-style: none;
-		}
-		.results-list {
-			margin-top: 30px;
-		}
+			li {
+				margin-bottom: 15px;
+			}
 
-		.result {
-			padding: 10px;
-			border-radius: 5px;
-			border: 1px solid #eee;
-		}
-		.error {
-			background-color: #fdd;
-			border-color: #ff9696;
-		}
-		.warning {
-			background-color: #ffd;
-			border-color: #e7c12b;
-		}
-		.notice {
-			background-color: #eef4ff;
-			border-color: #b6d0ff;
-		}
+			h1,
+			h2,
+			p,
+			pre,
+			ul {
+				margin-bottom: 0;
+				margin-top: 0;
+			}
 
-	</style>
+			h1 {
+				font-size: 24px;
+				line-height: 24px;
+				margin-bottom: 10px;
+			}
 
-</head>
-<body>
+			h2 {
+				font-size: 16px;
+			}
 
-	<div class="page">
+			pre {
+				overflow: auto;
+				white-space: pre-wrap;
+			}
 
-		<h1>Accessibility Report For "{{pageUrl}}"</h1>
-		<p>Generated at: {{date}}</p>
+			.page {
+				margin: 0 auto;
+				max-width: 800px;
+				padding: 25px;
+			}
 
-		<p class="counts">
-			<span class="count error">{{errorCount}} errors</span>
-			<span class="count warning">{{warningCount}} warnings</span>
-			<span class="count notice">{{noticeCount}} notices</span>
-		</p>
+			.counts {
+				font-size: 20px;
+				margin-top: 30px;
+			}
 
-		<ul class="clean-list results-list">
-			{{#issues}}
-			<li class="result {{type}}">
-				<h2>{{typeLabel}}: {{message}}</h2>
-				<p>{{code}}</p>
-				<pre>{{context}} (select with "{{selector}}")</pre>
-			</li>
-			{{/issues}}
-		</ul>
+			.count {
+				border-radius: 5px;
+				border: 1px solid var(--color--border);
+				display: inline-block;
+				padding: 5px;
+			}
 
-	</div>
+			.clean-list {
+				list-style: none;
+				margin-left: 0;
+				padding-left: 0;
+			}
 
-</body>
+			.results-list {
+				margin-top: 30px;
+			}
+
+			.result {
+				padding: 10px;
+				border-radius: 5px;
+				border: 1px solid var(--color--border);
+			}
+
+			.error {
+				background-color: var(--color--error-background);
+				border-color: var(--color--error-border);
+				color: var(--color--error-text);
+			}
+
+			.warning {
+				background-color: var(--color--warning-background);
+				border-color: var(--color--warning-border);
+				color: var(--color--warning-text);
+			}
+
+			.notice {
+				background-color: var(--color--notice-background);
+				border-color: var(--color--notice-border);
+				color: var(--color--notice-text);
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="page">
+
+			<h1>Accessibility Report For "{{pageUrl}}"</h1>
+			<p>Generated at: {{date}}</p>
+
+			<p class="counts">
+				<span class="count error">{{errorCount}} errors</span>
+				<span class="count warning">{{warningCount}} warnings</span>
+				<span class="count notice">{{noticeCount}} notices</span>
+			</p>
+
+			<ul class="clean-list results-list">
+				{{#issues}}
+				<li class="result {{type}}">
+					<h2>{{typeLabel}}: {{message}}</h2>
+					<p>{{code}}</p>
+					<pre>{{context}} (select with "{{selector}}")</pre>
+				</li>
+				{{/issues}}
+			</ul>
+
+		</div>
+
+	</body>
+
 </html>
