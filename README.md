@@ -33,10 +33,25 @@ Install Pa11y and Pa11y HTML Reporter with [npm](https://www.npmjs.com/) (locall
 npm install -g pa11y pa11y-reporter-html
 ```
 
-Run Pa11y using the HTML reporter:
+Run an accessibility test using the HTML reporter against a URL:
 
 ```sh
 pa11y --reporter html http://example.com
+```
+
+Run an accessibility test using the HTML reporter against a file:
+
+```sh
+pa11y --reporter html ./path/to/your/file.html
+```
+
+Run an accessibility test using the HTML reporter and save the results to a file:
+
+```sh
+pa11y --reporter html http://example.com > report.html
+```
+```sh
+pa11y --reporter html ./path/to/your/file.html > report.html
 ```
 
 ### JavaScript
