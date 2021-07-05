@@ -1,6 +1,10 @@
 
 # Pa11y HTML Reporter
 
+## This repository is now deprecated.
+
+The reporter has been merged into [pa11y/reporters](https://github.com/pa11y/pa11y/tree/master/lib/reporters).
+
 An HTML reporter for [Pa11y 5.0](https://github.com/pa11y/pa11y).
 
 [![NPM version][shield-npm]][info-npm]
